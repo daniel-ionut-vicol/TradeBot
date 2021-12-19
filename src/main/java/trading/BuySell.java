@@ -22,6 +22,7 @@ public class BuySell {
 
     private static LocalAccount localAccount;
     public static double MONEY_PER_TRADE;
+    public static double MAX_MONEY_PER_TRADE;
 
     public static void setAccount(LocalAccount localAccount) {
         BuySell.localAccount = localAccount;
@@ -142,7 +143,9 @@ public class BuySell {
 
     private static double nextAmount() {
         if (Mode.get().equals(Mode.BACKTESTING)) return localAccount.getFiat();
-        return Math.min(localAccount.getFiat(), localAccount.getTotalValue() * MONEY_PER_TRADE);
+        double min = Math.min(localAccount.getFiat(), localAccount.getTotalValue() * MONEY_PER_TRADE);
+        double result = Math.min(min, MAX_MONEY_PER_TRADE);
+        return result;
     }
 
 

@@ -106,6 +106,9 @@ public class ConfigSetup {
                     case "Percentage of money per trade":
                         BuySell.MONEY_PER_TRADE = Double.parseDouble(arr[1]);
                         break;
+                    case "Max Money per trade":
+                        BuySell.MAX_MONEY_PER_TRADE = Double.parseDouble(arr[1]);
+                        break;    
                     case "Trailing SL":
                         Trade.TRAILING_SL = Double.parseDouble(arr[1]);
                         break;
